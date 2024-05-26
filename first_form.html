@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<head>
+    <tittl>
+        form project
+    </tittl>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-image: url('./pic 1.jpg');
+            background-size: cover;
+            background-repeat: repeat-y;
+        }
+        table{
+            width: 50%;
+            height: 50%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            border-style: groove;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 700;
+            color: white;
+            margin-top: 10px;
+            margin-left: 80px;
+            margin-right: 80px;
+            
+        }
+        input[type="text"],input[type="password"]{
+            padding: 10px;
+            width: 70%;
+            height: 15px;
+        }
+        select{
+            width: 10%;
+            padding: 10px;
+        }
+        button:hover{
+            background-color:black;
+            color:white;
+
+        }
+        button{
+            width: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 2px;
+        }
+        td>h4{
+            margin: 8px;
+            font-weight: 800;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        td{
+            border:none;
+            padding: 10px;
+            color:aliceblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 600;
+        }
+        caption>h2{
+            color: white;
+            border: 2px groove white;
+            padding: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 700;
+        }
+        .contianer{
+            display: flex;
+            width: 50vw;
+            align-items: 20px;
+            
+        }
+    
+    </style>
+</head>
+<body>
+<div class="contianer">
+    <div>
+    <form onsubmit="handlesubmit(event)" id="form">
+        <table align="center">
+            <caption><h2>personal information form </h2></caption>
+
+            <tr>
+                <td>Name</td>
+                <td><input id="Name" type="text" placeholder="please Enter your Name"/> </td>
+
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input id="Lastname" type="text" placeholder="please Enter your Last Name"/> </td>
+
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><input id="Email" type="text" placeholder="please Enter your Email Address..."/> </td>
+
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td><input id="password" type="password" placeholder="please Enter your password"/> </td>
+            </tr>
+            <tr>
+                <td>phone nambr</td>
+                <td><input id="phonenambr" type="text" placeholder="+93"/> </td>
+
+            </tr>
+            
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" value="male" name="Gender"/> male
+                    <input type="radio" value="female" name="Gender"/> female
+
+                </td>
+
+            </tr>
+            <tr>
+            <td>Hobbies</td>
+            <td>
+                <input type="checkbox" class="Hobbies" value="footbal" name="playing"/> playing footbal
+                <input type="checkbox" class="Hobbies" value="Cricket" name="playing"/> playing Cricket
+                <input type="checkbox" class="Hobbies" value="Volleyball" name="playing"/> playing Volleyball
+                <input type="checkbox" class="Hobbies" value="Golf" name="playing"/> playing Golf
+            </tr>
+            <tr>
+                <td>Course</td>
+                <td>
+                    <select id="Education" name="Education">
+                        <option value="BBA">BBA</option>
+                        <option value="BIT">BIT</option>
+                        <option value="MBC">MBC</option>
+                        <option value="MBA">MBA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+           
+            <tr>
+                <td>comment</td>
+                <td>
+                     <textarea cols="40" rows="5" id="textarea" placeholder="comment.."></textarea>
+
+                </td>
+            </tr>
+            <tr>
+                 <td> Your Files </td>
+                 <td>
+                    <input type="file"/>
+                 </td>
+             </tr>
+ 
+             <tr>
+                <td colspan="2">
+                    <button type="submit">submit</button>
+                </td>
+                      
+            </tr>
+          
+        
+        </table>
+        </form>
+        </div>
+         <div>
+        <table align="center">
+            <div class="contianer">
+
+            
+            <caption><h2>Result of your inputs</h2></caption>
+
+            <tr>
+                <td id="NameResult"></td>
+            </tr>
+
+            <tr>
+                <td id="LastnameResult"></td>
+            </tr>
+
+            <tr>
+                <td id="EmailResult"></td>
+            </tr>
+
+            <tr>
+                <td id="passwordResult"> </td>
+            </tr>
+
+            <tr>
+                <td id="phonenambrResult"> </td>
+            </tr>
+
+            <tr>
+                <td id="textareaResult"></td>
+            </tr>
+
+            <tr>
+                <td id="RadioResult"> </td>
+            </tr>
+
+            <tr>
+                <td id="hobbiesResult"></td>
+            </tr>
+
+            <tr>
+                <td id="SelectResult"></td>
+            </tr>
+            
+        </table>
+    </div>
+    </div>
+    <marquee behavior="scroll" direction="left" scrollamount="10" style="background: black; color: white;">
+        Prepared By Nelab Qaderi
+    </marquee>
+    
+    <script>
+        function handlesubmit(event){
+    event.preventDefault();
+
+    var name=document.getElementById('Name');
+    var Lastname=document.getElementById('Lastname');
+    var Email=document.getElementById('Email');
+    var password=document.getElementById('password');
+    var phonenambr=document.getElementById('phonenambr');
+    var textarea=document.getElementById('textarea');
+    var hobbies=document.getElementsByClassName('Hobbies')
+    var Gender=document.getElementsByName('Gender');
+    var Select=document.getElementById('Education');
+    
+    // for(i=0;i<Select.length;i++){
+    //     if(Select[i].Selected===true){
+    //         document.getElementById('SelectResult').innerHTML=`you have Selected ${Selected[i].value}`;
+    //     }
+    // }
+
+    // for(i=0;i<hobbies.length;i++){
+    //     if(hobbies[i].checked===true){
+    //         document.getElementById('hobbiesResult').innerHTML+=`your hobbies are: ${hobbies[i].value}`;
+    //     }
+    // }
+
+    for(i=0;i<Gender.length;i++)
+    {
+       if(Gender[i].checked===true){
+        document.getElementById('RadioResult').innerHTML+=`you are ${Gender[i].value};`
+       }
+    }
+    
+    document.getElementById('NameResult').innerHTML=`<h3> you are ${name.value} </h3>`;
+    document.getElementById('LastnameResult').innerHTML=`<h3> you are last name is ${Lastname.value} </h3>`;
+    document.getElementById('EmailResult').innerHTML=`<h3> you are Email is ${Email.value} </h3>`;
+    document.getElementById('passwordResult').innerHTML=`<h3> you are password is ${password.value} </h3>`;
+    document.getElementById('phonenambrResult').innerHTML=`<h3> you are phonenambr is ${phonenambr.value} </h3>`;
+    document.getElementById('textareaResult').innerHTML=`<h3> you are comment is ${textarea.value} </h3>`;
+
+
+        }
+    </script>
+    
+
+   
+</body>
+
+
+
+</html>
